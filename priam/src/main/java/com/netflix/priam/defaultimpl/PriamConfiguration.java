@@ -49,6 +49,7 @@ public class PriamConfiguration implements IConfiguration
     private static final String CONFIG_CASS_STOP_SCRIPT = PRIAM_PRE + ".cass.stopscript";
     private static final String CONFIG_CLUSTER_NAME = PRIAM_PRE + ".clustername";
     private static final String CONFIG_SEED_PROVIDER_NAME = PRIAM_PRE + ".seed.provider";
+    private static final String CONFIG_EXTRA_SEEDS_NAME = PRIAM_PRE + ".seeds.extra";
     private static final String CONFIG_LOAD_LOCAL_PROPERTIES = PRIAM_PRE + ".localbootstrap.enable";
     private static final String CONFIG_MAX_HEAP_SIZE = PRIAM_PRE + ".heap.size.";
     private static final String CONFIG_DATA_LOCATION = PRIAM_PRE + ".data.location";
@@ -786,6 +787,12 @@ public class PriamConfiguration implements IConfiguration
     public String getSeedProviderName()
     {
         return config.get(CONFIG_SEED_PROVIDER_NAME, DEFAULT_SEED_PROVIDER);
+    }
+
+    @Override
+    public String getExtraSeeds()
+    {
+        return config.get(CONFIG_EXTRA_SEEDS_NAME, "");
     }
 
   @Override

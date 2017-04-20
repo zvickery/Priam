@@ -361,6 +361,11 @@ public interface IConfiguration
     public String getSeedProviderName();
 
     /**
+     * @return Get extra seeds
+     */
+    public String getExtraSeeds();
+
+    /**
      * @return Get Memtable throughput settings
      */
     public int getMemtableTotalSpaceMB();

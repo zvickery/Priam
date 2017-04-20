@@ -363,6 +363,12 @@ public class FakeConfiguration implements IConfiguration
     }
 
     @Override
+    public String getExtraSeeds()
+    {
+        return "";
+    }
+
+    @Override
     public int getBackupRetentionDays()
     {
         return 5;

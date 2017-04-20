@@ -363,6 +363,12 @@ public class FakeConfigurationMurmur3 implements IConfiguration
     }
 
     @Override
+    public String getExtraSeeds()
+    {
+        return "";
+    }
+
+    @Override
     public int getBackupRetentionDays()
     {
         return 5;

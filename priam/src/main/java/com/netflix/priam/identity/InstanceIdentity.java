@@ -45,6 +45,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.net.UnknownHostException;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -305,6 +306,8 @@ public class InstanceIdentity
         			   seeds.add(instance.getHostName());
         		}
         }
+
+        addExtraSeeds(seeds);
         return seeds;
     }
     
@@ -326,6 +329,16 @@ public class InstanceIdentity
     public String getReplacedIp()
     {
     	return replacedIp;
+    }
+
+    private void addExtraSeeds(List<String> seeds)
+    {
+        String extra_seeds = config.getExtraSeeds();
+        if(!extra_seeds.isEmpty())
+        {
+            String[] extras = extra_seeds.split(",");
+            seeds.addAll(Arrays.asList(extras));
+        }
     }
     
     private static boolean isInstanceDummy(PriamInstance instance) 

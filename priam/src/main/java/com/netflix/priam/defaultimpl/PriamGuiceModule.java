@@ -27,6 +27,7 @@ import org.quartz.impl.StdSchedulerFactory;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.name.Names;
+import com.netflix.priam.aws.IAMCredential;
 import com.netflix.priam.aws.S3CrossAccountFileSystem;
 import com.netflix.priam.aws.S3EncryptedFileSystem;
 import com.netflix.priam.aws.S3FileSystem;
@@ -77,7 +78,7 @@ public class PriamGuiceModule extends AbstractModule
         bind(ICredentialGeneric.class).annotatedWith(Names.named("gcscredential")).to(GcsCredential.class);
         bind(ICredentialGeneric.class).annotatedWith(Names.named("pgpcredential")).to(PgpCredential.class);
         bind(IRestoreStrategy.class).annotatedWith(Names.named("encryptedrestore")).to(EncryptedRestoreStrategy.class);
-        bind(ICredential.class).to(ClearCredential.class);
+        bind(ICredential.class).to(IAMCredential.class);
         bind(IDeadTokenRetriever.class).to(DeadTokenRetriever.class);
         bind(IPreGeneratedTokenRetriever.class).to(PreGeneratedTokenRetriever.class);
         bind(INewTokenRetriever.class).to(NewTokenRetriever.class);
